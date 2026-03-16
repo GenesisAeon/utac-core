@@ -1,0 +1,7 @@
+domains:
+  utac-core:
+    beta_default: 0.0625
+    sigma_phi: 0.0625
+    v_rig_baseline: 0.0433
+    description: "UTAC logistic core – σ(β(R−Θ)), Frame-Principle, v_RIG"
+    version: "0.1.0"

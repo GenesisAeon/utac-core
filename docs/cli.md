@@ -1,88 +1,73 @@
 # CLI Reference
 
-## `diamond scaffold`
+The `utac` CLI provides direct access to UTAC logistic computations from the terminal.
 
-Create a new project from a template.
+## `utac fit`
+
+Fit β to the UTAC logistic threshold from R and Θ sequences.
 
 ```
-Usage: diamond scaffold [OPTIONS] PROJECT_NAME
-
-Arguments:
-  PROJECT_NAME  Name of the new project (kebab-case recommended)
+Usage: utac fit [OPTIONS]
 
 Options:
-  -t, --template TEXT       Template to use [default: minimal]
-  -o, --output-dir PATH     Parent directory for the new project
-  --author TEXT             Author name
-  --description TEXT        Short project description
-  --python-version TEXT     Minimum Python version (e.g. 3.11)
-  --dry-run                 Preview files without writing them
+  --r FLOAT     R values (repeatable)   [default: 1.0, 1.618, 2.718]
+  --theta FLOAT Θ values (repeatable)   [default: 0.618, 1.0, 1.618]
 ```
 
-**Examples**
-
 ```bash
-# Minimal project in the current directory
-diamond scaffold my-lib
-
-# Genesis preset with custom author
-diamond scaffold my-physics-tool --template genesis --author "Ada Lovelace"
-
-# Preview what would be created
-diamond scaffold my-lib --dry-run
-
-# Output to a specific directory
-diamond scaffold my-lib --output-dir ~/projects
+utac fit
+utac fit --r 2.0 --r 3.0 --theta 1.0 --theta 1.5
 ```
 
 ---
 
-## `diamond list-templates`
+## `utac rig`
 
-List all available templates with their descriptions.
-
-```bash
-diamond list-templates
-```
-
----
-
-## `diamond validate`
-
-Validate a project directory against diamond-setup best practices.
+Calculate v_RIG (recursive implosive growth) at time t.
 
 ```
-Usage: diamond validate [PATH]
+Usage: utac rig [OPTIONS] [T]
 
 Arguments:
-  PATH  Project directory to validate [default: current directory]
+  T  Time value  [default: 10.0]
+
+Options:
+  -b, --beta FLOAT  β parameter  [default: 0.0625]
 ```
 
-Checks performed:
-
-| Check | Level |
-|-------|-------|
-| `pyproject.toml` present | **Error** |
-| `src/` layout present | Warning |
-| `tests/` directory present | Warning |
-| `.github/workflows/` present | Warning |
-| `README.md` present | Warning |
-| `.gitignore` present | Warning |
-
 ```bash
-# Validate the current directory
-diamond validate
-
-# Validate a specific project
-diamond validate path/to/my-project
+utac rig 10.0
+utac rig 100.0 --beta 0.1
 ```
 
 ---
 
-## `diamond version`
+## `utac frame-principle`
 
-Print the installed version.
+Display the symbolic Frame-Principle equation σ(β(R−Θ)) = σ_Φ.
 
 ```bash
-diamond version
+utac frame-principle
+```
+
+---
+
+## `utac logistic`
+
+Evaluate the UTAC logistic function σ(β(x − Θ)).
+
+```
+Usage: utac logistic [OPTIONS] X
+
+Arguments:
+  X  Input x
+
+Options:
+  -b, --beta FLOAT   β parameter  [default: 0.0625]
+  -t, --theta FLOAT  Threshold Θ  [default: 0.0]
+```
+
+```bash
+utac logistic 1.618
+utac logistic 1.618 --beta 0.0625 --theta 1.0
 ```

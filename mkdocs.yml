@@ -1,23 +1,23 @@
-site_name: Diamond Setup
-site_description: Universal Python project scaffold — generate professional project skeletons in seconds
-site_author: GenesisAeon
-repo_url: https://github.com/GenesisAeon/diamond-setup
-repo_name: GenesisAeon/diamond-setup
+site_name: utac-core
+site_description: Mathematical UTAC logistic core – σ(β(R−Θ)), β-Fitting, Frame-Principle and v_RIG
+site_author: GenesisAeon Team
+repo_url: https://github.com/GenesisAeon/utac-core
+repo_name: GenesisAeon/utac-core
 
 theme:
   name: material
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: deep-purple
+      accent: purple
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: deep-purple
+      accent: purple
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -36,8 +36,17 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+  - pymdownx.arithmatex:
+      generic: true
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
 
 nav:
   - Home: index.md
+  - API Reference: api.md
   - CLI Reference: cli.md
-  - Templates: templates.md

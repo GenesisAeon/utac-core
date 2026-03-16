@@ -1,101 +1,62 @@
-"""Tests for the CLI commands."""
-
-from pathlib import Path
+"""Tests for the utac CLI commands."""
 
 from typer.testing import CliRunner
 
-from diamond_setup.cli import app
-from diamond_setup.templates import REGISTRY
+from utac_core.cli import app
 
 runner = CliRunner()
 
 
-def test_version():
-    result = runner.invoke(app, ["version"])
+def test_fit_default():
+    result = runner.invoke(app, ["fit"])
     assert result.exit_code == 0
-    assert "1.0.0" in result.output
+    assert "β" in result.output or "Fitted" in result.output
 
 
-def test_list_templates():
-    result = runner.invoke(app, ["list-templates"])
-    assert result.exit_code == 0
-    for name in REGISTRY:
-        assert name in result.output
-
-
-def test_scaffold_minimal(tmp_path):
-    result = runner.invoke(app, ["scaffold", "hello-world", "--output-dir", str(tmp_path)])
-    assert result.exit_code == 0, result.output
-    assert (tmp_path / "hello-world" / "pyproject.toml").exists()
-
-
-def test_scaffold_genesis(tmp_path):
+def test_fit_custom_values():
     result = runner.invoke(
         app,
-        ["scaffold", "my-genesis", "--template", "genesis", "--output-dir", str(tmp_path)],
-    )
-    assert result.exit_code == 0, result.output
-    assert (tmp_path / "my-genesis" / "domains.yaml").exists()
-
-
-def test_scaffold_unknown_template():
-    result = runner.invoke(app, ["scaffold", "x", "--template", "nonexistent"])
-    assert result.exit_code != 0
-    assert "Unknown template" in result.output
-
-
-def test_scaffold_existing_dir(tmp_path):
-    (tmp_path / "existing-proj").mkdir()
-    result = runner.invoke(app, ["scaffold", "existing-proj", "--output-dir", str(tmp_path)])
-    assert result.exit_code != 0
-    assert "already" in result.output and "exists" in result.output
-
-
-def test_scaffold_dry_run_no_files(tmp_path):
-    result = runner.invoke(
-        app, ["scaffold", "dry-proj", "--output-dir", str(tmp_path), "--dry-run"]
+        ["fit", "--r", "2.0", "--r", "3.0", "--theta", "1.0", "--theta", "1.5"],
     )
     assert result.exit_code == 0
-    assert "Dry run" in result.output
-    assert not (tmp_path / "dry-proj").exists()
+    assert "0.050000" in result.output
 
 
-def test_scaffold_with_overrides(tmp_path):
-    result = runner.invoke(
-        app,
-        [
-            "scaffold",
-            "custom-proj",
-            "--output-dir",
-            str(tmp_path),
-            "--author",
-            "Test Author",
-            "--description",
-            "A test project",
-        ],
-    )
-    assert result.exit_code == 0, result.output
-    pyproject = (tmp_path / "custom-proj" / "pyproject.toml").read_text()
-    assert "Test Author" in pyproject
-    assert "A test project" in pyproject
+def test_rig_default():
+    result = runner.invoke(app, ["rig"])
+    assert result.exit_code == 0
+    assert "v_RIG" in result.output or "RIG" in result.output
 
 
-def test_validate_current_project():
-    """Running validate on diamond-setup's own root should pass."""
-    # Find the repo root (parent of tests/)
-    repo_root = Path(__file__).parent.parent
-    result = runner.invoke(app, ["validate", str(repo_root)])
-    assert result.exit_code == 0, result.output
-    assert "passed" in result.output.lower() or "✔" in result.output
+def test_rig_custom_t():
+    result = runner.invoke(app, ["rig", "1.0"])
+    assert result.exit_code == 0
 
 
-def test_validate_missing_pyproject(tmp_path):
-    """A directory without pyproject.toml should fail validation."""
-    result = runner.invoke(app, ["validate", str(tmp_path)])
-    assert result.exit_code != 0
-    assert "error" in result.output.lower() or "✘" in result.output
+def test_rig_custom_beta():
+    result = runner.invoke(app, ["rig", "10.0", "--beta", "0.1"])
+    assert result.exit_code == 0
 
 
-def test_validate_nonexistent_path():
-    result = runner.invoke(app, ["validate", "/nonexistent/path/xyz"])
-    assert result.exit_code != 0
+def test_frame_principle():
+    result = runner.invoke(app, ["frame-principle"])
+    assert result.exit_code == 0
+    assert "0.0625" in result.output
+
+
+def test_logistic_basic():
+    result = runner.invoke(app, ["logistic", "1.618"])
+    assert result.exit_code == 0
+    assert "σ" in result.output or "0." in result.output
+
+
+def test_logistic_midpoint():
+    result = runner.invoke(app, ["logistic", "1.0", "--theta", "1.0"])
+    assert result.exit_code == 0
+    assert "0.5" in result.output
+
+
+def test_help():
+    result = runner.invoke(app, ["--help"])
+    assert result.exit_code == 0
+    assert "utac" in result.output.lower() or "UTAC" in result.output

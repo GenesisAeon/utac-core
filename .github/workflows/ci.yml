@@ -26,16 +26,21 @@ jobs:
         run: uv python install ${{ matrix.python-version }}
 
       - name: Install dependencies
-        run: uv sync --extra dev
+        # uv's universal resolver requires all optional extras to be resolvable.
+        # [stack] packages are not yet on PyPI, so we use pip (which only resolves
+        # requested extras) via a seeded venv.
+        run: |
+          uv venv --seed --python ${{ matrix.python-version }}
+          .venv/bin/pip install -e ".[dev]" --quiet
 
       - name: Lint (ruff)
-        run: uv run ruff check .
+        run: .venv/bin/ruff check .
 
       - name: Format check (ruff)
-        run: uv run ruff format --check .
+        run: .venv/bin/ruff format --check .
 
       - name: Run tests
-        run: uv run pytest
+        run: .venv/bin/pytest
 
   docs:
     name: Build docs
@@ -44,5 +49,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: astral-sh/setup-uv@v5
       - run: uv python install 3.11
-      - run: uv sync --extra docs
-      - run: uv run mkdocs build --strict
+      - name: Install docs dependencies
+        run: |
+          uv venv --seed --python 3.11
+          .venv/bin/pip install -e ".[docs]" --quiet
+      - run: .venv/bin/mkdocs build --strict
