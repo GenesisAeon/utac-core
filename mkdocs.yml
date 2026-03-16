@@ -38,6 +38,8 @@ markdown_extensions:
       alternate_style: true
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.snippets:
+      base_path: .
 
 plugins:
   - search
@@ -50,3 +52,4 @@ nav:
   - Home: index.md
   - API Reference: api.md
   - CLI Reference: cli.md
+  - Changelog: changelog.md

@@ -74,7 +74,10 @@ utac-core/
 
 ## DOI
 
-DOI (after Zenodo release): 10.5281/zenodo.XXXXXXX
+**DOI**: [10.5281/zenodo.19057365](https://doi.org/10.5281/zenodo.19057365)
+**PyPI**: `pip install utac-core` (oder `pip install "utac-core[stack]"` für den vollen GenesisAeon-Stack)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19057365.svg)](https://doi.org/10.5281/zenodo.19057365)
 
 ---
 
