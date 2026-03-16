@@ -1,37 +1,50 @@
-# Diamond Setup
+# utac-core
 
-**Universal Python project scaffold** — generate professional, CI-ready project skeletons in seconds.
+**The mathematical UTAC logistic core** — σ(β(R−Θ)), β-Fitting, Frame-Principle (σ_Φ ≈ 0.0625) and v_RIG for unified field emergence.
 
-No cookiecutter, no Jinja2, no magic. Just a clean CLI, sensible templates, and a validator that keeps your projects healthy.
-
-## Quickstart
+## Install
 
 ```bash
-pip install diamond-setup
-# or with uv:
-uv tool install diamond-setup
+pip install utac-core
+# with full GenesisAeon stack integration:
+pip install "utac-core[stack]"
 ```
+
+## Quick start
 
 ```bash
-diamond scaffold my-new-tool
-cd my-new-tool && uv sync --dev && uv run pytest
+utac fit
+utac frame-principle
+utac rig 10.0
+utac logistic 1.618 --theta 1.0
 ```
 
-## Why Diamond Setup?
+## Python API
 
-| Feature | diamond-setup | cookiecutter | copier |
-|---------|:---:|:---:|:---:|
-| Zero config needed | ✅ | ❌ | ❌ |
-| Built-in validator | ✅ | ❌ | ❌ |
-| Pure Python templates | ✅ | ❌ | ❌ |
-| `--dry-run` support | ✅ | ❌ | ✅ |
-| Extensible presets | ✅ | ✅ | ✅ |
+```python
+from utac_core import beta_fit, v_rig, frame_principle
+from utac_core.core import utac_logistic, SIGMA_PHI
 
-## Commands
+# Fit β from field data
+beta = beta_fit([1.0, 1.618, 2.718], [0.618, 1.0, 1.618])
 
-| Command | Description |
-|---------|-------------|
-| `diamond scaffold <name>` | Create a new project |
-| `diamond list-templates` | Show available templates |
-| `diamond validate [path]` | Check a project's health |
-| `diamond version` | Show version |
+# Evaluate UTAC logistic σ(β(x − Θ))
+sigma = utac_logistic(1.618, beta=SIGMA_PHI, theta=1.0)
+
+# Recursive implosive growth
+growth = v_rig(t=10.0)
+
+# Symbolic Frame-Principle equation
+print(frame_principle())
+```
+
+## Mathematics
+
+| Symbol | Meaning |
+|--------|---------|
+| σ(β(R−Θ)) | UTAC logistic function |
+| σ_Φ ≈ 0.0625 | Frame-Principle constant (1/16) |
+| β | Logistic steepness / fitting parameter |
+| R | Field resonance value |
+| Θ | Logistic threshold |
+| v_RIG | Recursive implosive growth: β·ln(t+1)·σ_Φ |
