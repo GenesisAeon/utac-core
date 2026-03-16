@@ -7,7 +7,7 @@ from utac_core.core import SIGMA_PHI, beta_fit, frame_principle, utac_logistic, 
 
 class TestSigmaPhi:
     def test_value(self):
-        assert SIGMA_PHI == pytest.approx(0.0625)
+        assert pytest.approx(0.0625) == SIGMA_PHI
 
 
 class TestBetaFit:

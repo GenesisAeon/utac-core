@@ -1,4 +1,4 @@
-"""utac-core — mathematical UTAC logistic core: σ(β(R−Θ)), β-Fitting, Frame-Principle, v_RIG."""
+"""utac-core — UTAC logistic core: σ(β(R−Θ)), β-Fitting, Frame-Principle, v_RIG."""
 
 __version__ = "0.1.0"
 __author__ = "GenesisAeon Team"

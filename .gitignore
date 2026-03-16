@@ -16,6 +16,12 @@ htmlcov/
 # Docs
 site/
 
+# uv lockfile — not committed for library packages; [stack] extras reference
+# packages not yet on PyPI (field-theory, sigillin, …). Use:
+#   uv pip install -e ".[dev]"   for development
+#   uv pip install -e ".[stack]" once stack packages are released
+uv.lock
+
 # Editors
 .vscode/
 .idea/

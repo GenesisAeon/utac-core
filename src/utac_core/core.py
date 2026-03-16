@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import numpy as np
 import sympy as sp
-from typing import List
 
 # Symbolic variables
 beta_sym, R_sym, Theta_sym = sp.symbols("beta R Theta", real=True)
@@ -16,7 +15,7 @@ _sigma_utac = sp.Function("sigma")(beta_sym * (R_sym - Theta_sym))
 SIGMA_PHI: float = 0.0625
 
 
-def beta_fit(R_values: List[float], Theta_values: List[float]) -> float:
+def beta_fit(R_values: list[float], Theta_values: list[float]) -> float:
     """Fit β to the UTAC logistic threshold.
 
     β = σ_Φ / mean(|R − Θ|)
