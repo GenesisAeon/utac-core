@@ -1,7 +1,7 @@
-[project]
+﻿[project]
 name = "utac-core"
-version = "0.1.0"
-description = "The mathematical UTAC logistic core – σ(β(R−Θ)), β-Fitting, Frame-Principle and v_RIG for the GenesisAeon stack."
+version = "0.3.1"
+description = "The mathematical UTAC logistic core â€“ Ïƒ(Î²(Râˆ’Î˜)), Î²-Fitting, Frame-Principle and v_RIG for the GenesisAeon stack."
 readme = "README.md"
 license = { text = "MIT" }
 authors = [{ name = "GenesisAeon Team", email = "team@genesisaeon.org" }]
@@ -79,3 +79,4 @@ addopts = "--cov=utac_core --cov-report=term-missing -v"
 [tool.coverage.run]
 source = ["src"]
 omit = ["tests/*"]
+
