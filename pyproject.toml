@@ -1,4 +1,4 @@
-﻿[project]
+[project]
 name = "utac-core"
 version = "0.3.1"
 description = "The mathematical UTAC logistic core â€“ Ïƒ(Î²(Râˆ’Î˜)), Î²-Fitting, Frame-Principle and v_RIG for the GenesisAeon stack."
