@@ -1,0 +1,32 @@
+{
+  "title": "utac-core - P-CORE: UTAC base engine (logistic ODE, CREP tensor core)",
+  "description": "<p>The mathematical UTAC logistic core - sigma(beta(R-Theta)), beta-Fitting, Frame-Principle and v_RIG for unified field emergence.</p><p>Part of the <strong>GenesisAeon</strong> ecosystem (P-CORE, domain: UTAC base engine / logistic ODE / CREP tensor core).</p><p>See <a href=\"https://github.com/GenesisAeon/utac-core\">github.com/GenesisAeon/utac-core</a> for source, documentation, and reproducibility notebooks. Code is licensed GPL-3.0-or-later; documentation is licensed CC BY 4.0 (see LICENSE-DOCS.md).</p>",
+  "creators": [
+    {
+      "name": "Römer, Johann",
+      "affiliation": "Independent Researcher / MOR Research Collective"
+    }
+  ],
+  "license": "GPL-3.0-or-later",
+  "upload_type": "software",
+  "access_right": "open",
+  "keywords": [
+    "GenesisAeon",
+    "P-CORE",
+    "UTAC",
+    "CREP",
+    "open science"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.19645351",
+      "relation": "isPartOf",
+      "resource_type": "publication-article",
+      "scheme": "doi"
+    }
+  ],
+  "version": "1.0.0",
+  "communities": [
+    { "identifier": "genesisaeon" }
+  ]
+}

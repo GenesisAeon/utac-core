@@ -4,12 +4,13 @@
 
 [![CI](https://github.com/GenesisAeon/utac-core/actions/workflows/ci.yml/badge.svg)](https://github.com/GenesisAeon/utac-core/actions/workflows/ci.yml)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![License: GPL-3.0-or-later](https://img.shields.io/badge/Code-GPLv3--or--later-blue.svg)](LICENSE)
+[![Docs License: CC BY 4.0](https://img.shields.io/badge/Docs-CC%20BY%204.0-lightgrey.svg)](LICENSE-DOCS.md)
 [![PyPI](https://img.shields.io/pypi/v/utac-core)](https://pypi.org/project/utac-core/)
 
 ---
 
-## Install
+## Installation
 
 ```bash
 pip install utac-core
@@ -72,12 +73,26 @@ utac-core/
 └── pyproject.toml
 ```
 
-## DOI
+## Citation
 
-**DOI**: [10.5281/zenodo.19057365](https://doi.org/10.5281/zenodo.19057365)
-**PyPI**: `pip install utac-core` (oder `pip install "utac-core[stack]"` für den vollen GenesisAeon-Stack)
+If you use utac-core in research, please cite it via its Zenodo DOI:
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19057365.svg)](https://doi.org/10.5281/zenodo.19057365)
+
+**DOI**: [10.5281/zenodo.19057365](https://doi.org/10.5281/zenodo.19057365)
+**PyPI**: `pip install utac-core` (or `pip install "utac-core[stack]"` for the full GenesisAeon stack)
+
+## Role in the GenesisAeon Ecosystem
+
+utac-core (P-CORE) is the UTAC base engine of the GenesisAeon ecosystem,
+providing the logistic ODE / CREP tensor core that downstream packages
+(`sigillin`, `mandala-visualize`, `sonification`, `aeon-ai`, and others)
+build on.
+
+## License
+
+Source code is licensed under [GPL-3.0-or-later](LICENSE). Documentation
+is licensed under [CC BY 4.0](LICENSE-DOCS.md).
 
 ---
 
