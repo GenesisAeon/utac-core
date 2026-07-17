@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "utac-core"
+version: "1.0.0"
+date-released: "2026-03-26"
+authors:
+  - name: "GenesisAeon Team"
+    email: team@genesisaeon.org
+repository-code: "https://github.com/GenesisAeon/utac-core"
+license: GPL-3.0-or-later
+abstract: "The mathematical UTAC logistic core - sigma(beta(R-Theta)), beta-Fitting, Frame-Principle and v_RIG for the GenesisAeon stack."
+keywords:
+  - GenesisAeon
+  - UTAC
+  - CREP
+  - open-science
+  - utac
+  - logistic
+  - field-theory
+  - frame-principle
