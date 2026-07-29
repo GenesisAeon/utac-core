@@ -2,9 +2,19 @@
 
 from __future__ import annotations
 
+import sys
+
 import typer
 from rich.console import Console
 from rich.panel import Panel
+
+# Windows consoles default to a non-UTF-8 codepage, which breaks the Greek
+# letters and math symbols used throughout this CLI (beta/sigma/Theta etc.)
+# with UnicodeEncodeError. Force UTF-8 stdout/stderr so behavior matches
+# Linux/macOS terminals.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
 
 from .core import SIGMA_PHI, beta_fit, frame_principle, utac_logistic, v_rig
 

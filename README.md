@@ -21,7 +21,7 @@ pip install "utac-core[stack]"
 ## Quick start
 
 ```bash
-utac fit --beta 0.0625
+utac fit
 utac frame-principle
 utac rig 10.0
 utac logistic 1.618 --beta 0.0625 --theta 1.0
@@ -36,11 +36,11 @@ from utac_core.core import utac_logistic, SIGMA_PHI
 # Fit β from field data
 beta = beta_fit([1.0, 1.618, 2.718], [0.618, 1.0, 1.618])
 
-# Evaluate UTAC logistic σ(β(x − Θ))
-sigma = utac_logistic(1.618, beta=SIGMA_PHI, theta=1.0)
+# Evaluate UTAC logistic σ(β(x − Θ)) using the fitted β
+sigma = utac_logistic(1.618, beta=beta, theta=1.0)
 
-# Recursive implosive growth
-growth = v_rig(t=10.0)
+# Recursive implosive growth, also using the fitted β
+growth = v_rig(t=10.0, beta=beta)
 
 # Symbolic Frame-Principle equation
 print(frame_principle())   # sigma(beta*(R - Theta)) = 0.0625
