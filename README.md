@@ -77,9 +77,9 @@ utac-core/
 
 If you use utac-core in research, please cite it via its Zenodo DOI:
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.19057365.svg)](https://doi.org/10.5281/zenodo.19057365)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20996681.svg)](https://doi.org/10.5281/zenodo.20996681)
 
-**DOI**: [10.5281/zenodo.19057365](https://doi.org/10.5281/zenodo.19057365)
+**DOI**: [10.5281/zenodo.20996681](https://doi.org/10.5281/zenodo.20996681)
 **PyPI**: `pip install utac-core` (or `pip install "utac-core[stack]"` for the full GenesisAeon stack)
 
 ## Role in the GenesisAeon Ecosystem
