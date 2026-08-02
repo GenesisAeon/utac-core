@@ -84,7 +84,7 @@ If you use utac-core in research, please cite it via its Zenodo DOI:
 
 ## Role in the GenesisAeon Ecosystem
 
-utac-core (P-CORE) is the UTAC base engine of the GenesisAeon ecosystem,
+utac-core (P79, formerly informally "P-CORE") is the UTAC base engine of the GenesisAeon ecosystem,
 providing the logistic ODE / CREP tensor core that downstream packages
 (`sigillin`, `mandala-visualize`, `sonification`, `aeon-ai`, and others)
 build on.

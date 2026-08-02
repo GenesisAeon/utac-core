@@ -1,5 +1,5 @@
 {
-  "title": "utac-core - P-CORE: UTAC base engine (logistic ODE, CREP tensor core)",
+  "title": "utac-core - P79 (formerly P-CORE): UTAC base engine (logistic ODE, CREP tensor core)",
   "description": "<p>The mathematical UTAC logistic core - sigma(beta(R-Theta)), beta-Fitting, Frame-Principle and v_RIG for unified field emergence.</p><p>Part of the <strong>GenesisAeon</strong> ecosystem (P-CORE, domain: UTAC base engine / logistic ODE / CREP tensor core).</p><p>See <a href=\"https://github.com/GenesisAeon/utac-core\">github.com/GenesisAeon/utac-core</a> for source, documentation, and reproducibility notebooks. Code is licensed GPL-3.0-or-later; documentation is licensed CC BY 4.0 (see LICENSE-DOCS.md).</p>",
   "creators": [
     {
